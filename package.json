@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon aplication/app.js",
-    "start": "node aplication/app.js",
+    "dev": "nodemon aplicação/app.js",
+    "start": "node aplicação/app.js",
     "postinstall": "npm install"
   },
   "keywords": [],
