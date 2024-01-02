@@ -27,7 +27,7 @@
         </nav>
         <div class="head-botoes">
           <button class="btn-cliente">Area do Cliente</button>
-          <button class="btn-cadastro">Cadastre-se</button>
+          <button class="btn-cadastro" onclick="mostrarModal()">Cadastre-se</button>
         </div>
       </header>
       <section class="container">
@@ -47,9 +47,22 @@
         </article>
       </section>
     </main>
+    <!-- Aqui faremos um modal para a nossa parte de cadastro -->
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span class="close" id="close" onclick="fecharModal()">&times;</span>
+        <h2>Cadastre-se</h2>
+        <form action="">
+          <input type="text" placeholder="Nome Completo" />
+          <input type="text" placeholder="CPF" />
+          <input type="text" placeholder="E-mail" />
+          <input type="text" placeholder="Celular" />
+          <input type="text" placeholder="Data de Nascimento" />
+          <input type="text" placeholder="Senha" />
+          <input type="text" placeholder="Confirmar Senha" />
+          <button type="submit">Criar minha conta</button>
+        </form>
+      </div>
   </body>
 </html>
-<!-- 
-    Caso o index tenha alguma funcionalidade, descomente essa linha
-    <script src=""></script> 
--->
+<script src="./js/main.js"></script>
