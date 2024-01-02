@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index</title>
-</head>
-<body>
-    <h1>Ola Mundo!</h1>
-</body>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <!-- O reset CSS tem que vir antes da sua estilização, para não sobrepor o que voce fez -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- Uso essa div MAIN para determinar o tamanho de todo o projeto, assim deixa mais resposivo -->
+    <main>
+      <!-- Estou usando HTML semantico, mas é tudo div com outro nome -->
+      <header>
+        <picture></picture>
+        <nav>
+          <a href="" class="head-nav">Para você</a>
+          <a href="" class="head-nav">Para seu Negócio</a>
+          <a href="" class="head-nav">Sobre o PicPay</a>
+          <a href="" class="head-nav">Central de Ajuda</a>
+          <a href="" class="head-nav">Blog</a>
+        </nav>
+        <div class="head-botoes">
+          <button class="btn-cliente">Area do Cliente</button>
+          <button class="btn-cadastro">Cadastre-se</button>
+        </div>
+      </header>
+      <section>
+        <article>
+          <p>
+            Muda pro PicPay e dê mais pique pro seu dinheiro: aqui você antecipa
+            seu FGTS em até 2 minutos
+          </p>
+          <div>
+            <p>Abrir conta PicPay</p>
+            <img src="">
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
 </html>
+<!-- 
+    Caso o index tenha alguma funcionalidade, descomente essa linha
+    <script src=""></script> 
+-->
