@@ -1,3 +1,125 @@
-:root{
-    --verde-picpay: #238662,
+/* Importanto a fonte Inter */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  /* Declarandoo variaveis */
+  --verde-picpay: #238662;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", sans-serif; /* fonte */
+}
+main {
+  /* colocamos largura em porcentagem para deixar resposivo seu site
+    e colocamos uma largura maxima para que o site não fique muito largo
+*/
+  width: 90vw;
+  max-width: 1200px;
+  height: 100vh;
+}
+.cabeçalho {
+  display: flex;
+  width: 100%;
+  height: 71px;
+  align-items: center;
+  justify-content: space-between;
+}
+/* Para dar espaço entre os links podemos fazer de varias formas
+1 - Adicionando um margin-right: 20px; na tag </a>
+ou
+2 - Adicionando justify-content: space-evenly; na classe .navbar
+*/
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+}
+/* 
+A classe .navbar é a classe que contem os links do menu 
+Estou especificando que todas as tag </a> dentro da classe navbar 
+sejam da cor #333
+*/
+.navbar a {
+  color: #333;
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 150% */
+  text-decoration: none;
+}
+.head-botoes {
+  display: flex;
+  width: 30%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.head-botoes button {
+  display: flex;
+  width: 152px;
+  height: 28px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  border: none;
+}
+.head-botoes button:hover {
+  cursor: pointer;
+}
+.head-botoes .btn-cliente {
+  color: #136c4c;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700; /* 150% */
+  text-decoration-line: underline;
+}
+.head-botoes .btn-cadastro {
+  color: #f5f5f5;
+  text-align: center;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 150% */
+  background-color: var(--verde-picpay);
+}
+.container {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  background: linear-gradient(270deg, #dbddd1 0%, #bec2b4 100%);
+}
+/* Como vou usar o mesmo estilo para duas div's diferentes
+eu crio uma classe com o estilo e só passo para todas as div's que eu quiser
+*/
+.container .artigos {
+  width: 50%;
+  height: 100%;
+}
+
+.container .art-esquerda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.art-esquerda h2 {
+  width: 440px;
+  color: #383227;
+  font-family: Inter;
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px; /* 100% */
+}
+.art-direrita {
+  background: url(<path-to-image>),
+    lightgray 0px -3.947px / 100% 101.053% no-repeat;
 }

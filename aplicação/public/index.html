@@ -12,30 +12,38 @@
     <!-- Uso essa div MAIN para determinar o tamanho de todo o projeto, assim deixa mais resposivo -->
     <main>
       <!-- Estou usando HTML semantico, mas é tudo div com outro nome -->
-      <header>
-        <picture></picture>
-        <nav>
-          <a href="" class="head-nav">Para você</a>
-          <a href="" class="head-nav">Para seu Negócio</a>
-          <a href="" class="head-nav">Sobre o PicPay</a>
-          <a href="" class="head-nav">Central de Ajuda</a>
-          <a href="" class="head-nav">Blog</a>
+      <header class="cabeçalho">
+        <picture>
+          <!-- Aqui pegamos um SVG salvo na pasta assets -->
+          <img src="./assets/logo-picpay.svg">
+        </picture>
+        <nav class="navbar">
+          <!-- Barra de navegação -->
+          <a href="#">Para você</a>
+          <a href="#">Para seu Negócio</a>
+          <a href="#">Sobre o PicPay</a>
+          <a href="#">Central de Ajuda</a>
+          <a href="#">Blog</a>
         </nav>
         <div class="head-botoes">
           <button class="btn-cliente">Area do Cliente</button>
           <button class="btn-cadastro">Cadastre-se</button>
         </div>
       </header>
-      <section>
-        <article>
-          <p>
+      <section class="container">
+        <article class="artigos art-esquerda">
+          <h2>
             Muda pro PicPay e dê mais pique pro seu dinheiro: aqui você antecipa
             seu FGTS em até 2 minutos
-          </p>
-          <div>
+          </h2>
+          <div class="btn-criar-conta">
             <p>Abrir conta PicPay</p>
             <img src="">
           </div>
+        </article>
+        <article class="artigos art-direita">
+          <img src="./assets/mulher.png" alt="mulher-picpay" width="100%">
+          <!-- alt="" serve para caso a imagem nao carregue, ai aparece o texto -->
         </article>
       </section>
     </main>
