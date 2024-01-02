@@ -1,0 +1,12 @@
+CREATE DATABASE PicPay;
+
+USE PicPay;
+
+CREATE TABLE usuario (
+    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    cpf VARCHAR(255) NOT NULL,
+    dataNascimento DATE NOT NULL
+);
