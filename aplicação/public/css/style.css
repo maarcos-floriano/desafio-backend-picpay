@@ -149,13 +149,13 @@ eu crio uma classe com o estilo e só passo para todas as div's que eu quiser
   font-size: 28px;
   font-weight: bold;
 }
-.modal-content form{
+.modal-content div{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.modal-content form input{
+.modal-content div input{
   width: 100%;
   height: 30px;
   margin-top: 10px;
@@ -163,7 +163,7 @@ eu crio uma classe com o estilo e só passo para todas as div's que eu quiser
   border: 1px solid #ccc;
   padding: 0 10px;
 }
-.modal-content form button{
+.modal-content div button{
   width: 100%;
   height: 40px;
   margin-bottom: 10px;

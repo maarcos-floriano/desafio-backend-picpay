@@ -3,7 +3,7 @@ var database = require("../database/config");
 // Função para cadastrar um novo usuário
 function cadastrar(nome, email, senha, cpf, dtNasc) {
   return database.executar(`
-    INSERT INTO usuario (nome, email, senha, cpf, dtNasc)
+    INSERT INTO usuario (nome, email, senha, cpf, dataNascimento)
     VALUES ('${nome}', '${email}', '${senha}', '${cpf}', '${dtNasc}')
   `);
   console.log("Executando a instrução SQL: \n" + instrucao);

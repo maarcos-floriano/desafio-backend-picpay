@@ -119,7 +119,7 @@ function enviarCredenciais() {
     validarCPF(cpfVar) &&
     validarIdade(dtNascVar)
   ) {
-    fetch("/usuarios/cadastrar", {
+    fetch("/usuario/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

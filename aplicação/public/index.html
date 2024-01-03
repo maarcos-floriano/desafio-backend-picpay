@@ -52,16 +52,16 @@
       <div class="modal-content">
         <span class="close" id="close" onclick="fecharModal()">&times;</span>
         <h2>Cadastre-se</h2>
-        <form onsubmit="enviarCredenciais()">
+        <div>
           <input type="text" placeholder="Nome Completo" id="ipt_nome"/>
           <input type="text" placeholder="CPF" id="ipt_cpf"/>
           <input type="text" placeholder="E-mail" id="ipt_email"/>
           <input type="text" placeholder="Celular" id="ipt_celular"/>
-          <input type="date" placeholder="Data de Nascimento" id="ipt_dtNascimento"/>
+          <input type="date" placeholder="Data de Nascimento" id="ipt_dtNasc"/>
           <input type="text" placeholder="Senha" id="ipt_senha"/>
           <input type="text" placeholder="Confirmar Senha" id="ipt_confirmSenha"/>
-          <button type="submit">Criar minha conta</button>
-        </form>
+          <button onclick="enviarCredenciais()">Criar minha conta</button>
+        </div>
       </div>
   </body>
 </html>
