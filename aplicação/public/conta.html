@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conta PicPay</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #238662;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conta PicPay</h1>
+    <h2>Dados da conta:</h2>
+    <p>Nome: <span id="nome"></span></p>
+    <p>E-mail: <span id="email"></span></p>
+    <p>Saldo: R$ <span id="saldo"></span></p>
+
+    <script>
+        // Dados do cliente que estão armazenados na sessão
+        const cliente = {
+            nome :sessionStorage.NOME_USUARIO,
+            email: sessionStorage.EMAIL_USUARIO,
+            saldo: 100.00,
+        }
+
+        // Exibindo os dados fictícios na página
+        document.getElementById("nome").innerText = cliente.nome;
+        document.getElementById("email").innerText = cliente.email;
+        document.getElementById("saldo").innerText = cliente.saldo.toFixed(2);
+    </script>
+</body>
+</html>
