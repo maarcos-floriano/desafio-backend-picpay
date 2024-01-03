@@ -26,7 +26,7 @@
           <a href="#">Blog</a>
         </nav>
         <div class="head-botoes">
-          <button class="btn-cliente">Area do Cliente</button>
+          <button class="btn-cliente" onclick="mostrarModalLogin()">Area do Cliente</button>
           <button class="btn-cadastro" onclick="mostrarModal()">Cadastre-se</button>
         </div>
       </header>
@@ -58,11 +58,23 @@
           <input type="text" placeholder="E-mail" id="ipt_email"/>
           <input type="text" placeholder="Celular" id="ipt_celular"/>
           <input type="date" placeholder="Data de Nascimento" id="ipt_dtNasc"/>
-          <input type="text" placeholder="Senha" id="ipt_senha"/>
-          <input type="text" placeholder="Confirmar Senha" id="ipt_confirmSenha"/>
+          <input type="password" placeholder="Senha" id="ipt_senha"/>
+          <input type="password" placeholder="Confirmar Senha" id="ipt_confirmSenha"/>
           <button onclick="enviarCredenciais()">Criar minha conta</button>
         </div>
       </div>
+    </div>
+      <!-- Aqui faremos outro modal parecido mas pro login -->
+      <div class="modal" id="modalLogin">
+        <div class="modal-content">
+          <span class="close" id="close-login" onclick="fecharModalLogin()">&times;</span>
+          <h2>Login</h2>
+          <div>
+            <input type="text" placeholder="CPF" id="ipt_cpf_login"/>
+            <input type="password" placeholder="Senha" id="ipt_senha_login"/>
+            <button onclick="acessar()">Entrar</button>
+          </div>
+        </div>
   </body>
 </html>
 <script src="./js/main.js"></script>

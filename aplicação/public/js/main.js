@@ -7,9 +7,13 @@ function fecharModal() {
   document.getElementById("modal").style.display = "none";
 }
 
-function mostrar(){
-    const objeto = document.getElementById("ipt_dtNascimento");
-    console.log(objeto.value);
+// funcao para abrir e fechar modal login
+function mostrarModalLogin() {
+  document.getElementById("modalLogin").style.display = "block";
+  console.log("teste");
+}
+function fecharModalLogin() {
+  document.getElementById("modalLogin").style.display = "none";
 }
 
 // Validar e-mail
@@ -139,9 +143,10 @@ function enviarCredenciais() {
 
         if (resposta.ok) {
           alert("Cadastro feito com sucesso, redirecionando");
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
+
+          // redirecionar para a página de login
+          fecharModal();
+          mostrarModalLogin();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
@@ -152,4 +157,60 @@ function enviarCredenciais() {
 
     return false;
   }
+}
+
+// Função para acessar
+function acessar() {
+  var cpfVar = ipt_cpf_login.value;
+  var senhaVar = ipt_senha_login.value;
+
+  if(senhaVar == "" || cpfVar == ""){
+    setTimeout(() => {
+      alert('Campos invalidos')
+    }, 100);
+    return false
+  }
+  fetch("/usuario/autenticar", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              cpfServer: cpfVar,
+              senhaServer: senhaVar
+          })
+      }).then(function (resposta) {
+          console.log("ESTOU NO THEN DO entrar()!")
+
+          if (resposta.ok) {
+              console.log(resposta);
+
+              resposta.json().then(json => {
+                  console.log(json);
+
+                  // Atribuindo os valores do JSON para as variáveis de sessão
+                  console.log(JSON.stringify(json));
+                  sessionStorage.EMAIL_USUARIO = json.email;
+                  sessionStorage.NOME_USUARIO = json.nome;
+                  sessionStorage.ID_USUARIO = json.idUsuario;
+                  sessionStorage.CPF_USUARIO = json.cpf;
+
+                  setTimeout(function () {
+                      window.location = "../conta.html";
+                  }, 1000); // apenas para exibir o loading
+
+              });
+
+          } else {
+
+              console.log("Houve um erro ao tentar realizar o login!");
+
+              resposta.text().then(texto => {
+                  alert(texto);
+              });
+          }
+
+      }).catch(function (erro) {
+          console.log(erro);
+      })
 }

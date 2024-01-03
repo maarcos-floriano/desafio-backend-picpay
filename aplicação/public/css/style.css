@@ -126,7 +126,7 @@ eu crio uma classe com o estilo e só passo para todas as div's que eu quiser
 
 /* Modal */
 .modal{
-  display: block;
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -148,6 +148,11 @@ eu crio uma classe com o estilo e só passo para todas as div's que eu quiser
   float: right;
   font-size: 28px;
   font-weight: bold;
+}
+.close:hover, .close:focus{
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 .modal-content div{
   display: flex;
