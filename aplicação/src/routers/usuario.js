@@ -14,7 +14,7 @@ router.post("/autenticar", function (req, res) {
 });
 
 // Recebendo os dados do html e direcionando para a função transferencia de usuarioController.js
-router.post("/transferencia:idOrigem", function (req, res) {
+router.post("/transferencia/:idUsuario", function (req, res) {
     usuarioController.transferencia(req, res);
 });
 

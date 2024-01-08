@@ -27,10 +27,20 @@ function transferencia(idOrigem, cpfDestino, valor, dataTransferencia) {
   return database.executar(instrucao);
 }
 
+//Atualizando o saldo do usuário de origem
+function atualizarSaldoOrigem(idOrigem, valor) {
+  return database.executar(`
+    UPDATE usuario SET saldo = saldo - '${valor}' WHERE idUsuario = '${idOrigem}'
+  `);
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
+}
+
 
 // Exportando as funções
 module.exports = {
   cadastrar,
   autenticar,
-  transferencia
+  transferencia,
+  atualizarSaldoOrigem
 };

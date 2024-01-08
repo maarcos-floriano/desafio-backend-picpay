@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS PicPay;
+
 CREATE DATABASE PicPay;
 
 USE PicPay;
@@ -10,15 +12,21 @@ CREATE TABLE usuario (
     cpf VARCHAR(255) NOT NULL,
     dataNascimento DATE NOT NULL,
     saldo DECIMAL(10,2) NOT NULL,
-    tipoUsuario VARCHAR(255) NOT NULL
+    tipo VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE transferencia (
     idTransferencia INT PRIMARY KEY AUTO_INCREMENT,
     idUsuarioOrigem INT NOT NULL,
-    cpfdUsuarioDestino INT NOT NULL,
+    cpfUsuarioDestino INT NOT NULL,
     valor DECIMAL(10,2) NOT NULL,
     dataTransferencia DATE NOT NULL,
     FOREIGN KEY (idUsuarioOrigem) REFERENCES usuario(idUsuario),
-    FOREIGN KEY (idUsuarioDestino) REFERENCES usuario(idUsuario)
+    FOREIGN KEY (cpfUsuarioDestino) REFERENCES usuario(idUsuario)
 );
+
+INSERT INTO usuario (nome, senha, email, cpf, dataNascimento, saldo, tipo) VALUES
+('João', '123', 'joao@gmail.com', '123.456.789-11', '1990-01-01', 1000.00, 'COMUM'),
+('Maria', '123', 'maria@gmail.com', '123.456.789-12', '1990-01-01', 1000.00, 'COMUM'),
+('Lojista1', '123', 'lojista1@gmail.com', '123.456.789-13', '1990-01-01', 1000.00, 'LOJISTA'),
+('Lojista2', '123', 'lojista2@gmail.com', '123.456.789-14', '1990-01-01', 1000.00, 'LOJISTA');
