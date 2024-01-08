@@ -33,19 +33,8 @@
     <p>Nome: <span id="nome"></span></p>
     <p>E-mail: <span id="email"></span></p>
     <p>Saldo: R$ <span id="saldo"></span></p>
-
-    <script>
-        // Dados do cliente que estão armazenados na sessão
-        const cliente = {
-            nome :sessionStorage.NOME_USUARIO,
-            email: sessionStorage.EMAIL_USUARIO,
-            saldo: 100.00,
-        }
-
-        // Exibindo os dados fictícios na página
-        document.getElementById("nome").innerText = cliente.nome;
-        document.getElementById("email").innerText = cliente.email;
-        document.getElementById("saldo").innerText = cliente.saldo.toFixed(2);
-    </script>
+    <p>Tipo: <span id="tipoUsuario"></span></p>
+    <button id="btnTransferir">Transferencia</button>
 </body>
 </html>
+<script src="./js/conta.js"></script>
