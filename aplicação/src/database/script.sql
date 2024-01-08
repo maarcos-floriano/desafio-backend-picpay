@@ -8,5 +8,7 @@ CREATE TABLE usuario (
     senha VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     cpf VARCHAR(255) NOT NULL,
-    dataNascimento DATE NOT NULL
+    dataNascimento DATE NOT NULL,
+    saldo DECIMAL(10,2) NOT NULL,
+    tipoUsuario VARCHAR(255) NOT NULL
 );

@@ -61,6 +61,8 @@ function autenticar(req, res) {
                     email: resultado[0].email,
                     idUsuario: resultado[0].idUsuario,
                     cpf: resultado[0].cpf,
+                    saldo: resultado[0].saldo,
+                    tipo: resultado[0].tipo
                 })
             } else if(resultado.length == 0){
                 res.status(403).send("Email e/ou senha inválido(s)");

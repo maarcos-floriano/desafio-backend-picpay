@@ -194,7 +194,8 @@ function acessar() {
                   sessionStorage.NOME_USUARIO = json.nome;
                   sessionStorage.ID_USUARIO = json.idUsuario;
                   sessionStorage.CPF_USUARIO = json.cpf;
-
+                  sessionStorage.SALDO_USUARIO = json.saldo;
+                  sessionStorage.TIPO_USUARIO = json.tipo;
                   setTimeout(function () {
                       window.location = "../conta.html";
                   }, 1000); // apenas para exibir o loading
