@@ -18,11 +18,9 @@ CREATE TABLE usuario (
 CREATE TABLE transferencia (
     idTransferencia INT PRIMARY KEY AUTO_INCREMENT,
     idUsuarioOrigem INT NOT NULL,
-    cpfUsuarioDestino INT NOT NULL,
+    cpfUsuarioDestino VARCHAR(255) NOT NULL,
     valor DECIMAL(10,2) NOT NULL,
-    dataTransferencia DATE NOT NULL,
-    FOREIGN KEY (idUsuarioOrigem) REFERENCES usuario(idUsuario),
-    FOREIGN KEY (cpfUsuarioDestino) REFERENCES usuario(idUsuario)
+    dataTransferencia DATETIME NOT NULL
 );
 
 INSERT INTO usuario (nome, senha, email, cpf, dataNascimento, saldo, tipo) VALUES

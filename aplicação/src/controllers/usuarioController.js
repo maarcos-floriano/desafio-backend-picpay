@@ -107,18 +107,7 @@ function transferencia(req, res) {
     usuarioModel
       .transferencia(idOrigem, cpfDestino, valor, dataTransferencia)
       .then(function (resultado) {
-        if (resultado.length == 1) {
-            //Atualizando o saldo do usuário de origem
-          usuarioModel
-            .atualizarSaldoOrigem(idOrigem, valor)
-            .then(function (resultado) {
-              if (resultado.length == 1) {
-                res.json({
-                  saldo: resultado[0].saldo,
-                });
-              }
-            });
-        }
+        res.json(resultado);
       })
       .catch(function (erro) {
         console.log(erro);

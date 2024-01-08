@@ -1,65 +1,67 @@
-class Cliente{
-    email = sessionStorage.EMAIL_USUARIO;
-    nome = sessionStorage.NOME_USUARIO;
-    id = sessionStorage.ID_USUARIO;
-    cpf = sessionStorage.CPF_USUARIO;
-    saldo = sessionStorage.SALDO_USUARIO;
-    tipo = sessionStorage.TIPO_USUARIO;
-
-    getEmail(){
-        return this.email
+class Cliente {
+    constructor() {
+        this.email = sessionStorage.EMAIL_USUARIO;
+        this.nome = sessionStorage.NOME_USUARIO;
+        this.id = sessionStorage.ID_USUARIO;
+        this.cpf = sessionStorage.CPF_USUARIO;
+        this.saldo = sessionStorage.SALDO_USUARIO;
+        this.tipo = sessionStorage.TIPO_USUARIO;
     }
 
-    getNome(){
-        return this.nome
+    getEmail() {
+        return this.email;
     }
 
-    getId(){
-        return this.id
+    getNome() {
+        return this.nome;
     }
 
-    getCpf(){
-        return this.cpf
+    getId() {
+        return this.id;
     }
 
-    getSaldo(){
-        return this.saldo
+    getCpf() {
+        return this.cpf;
     }
 
-    getTipo(){
-        return this.tipo
+    getSaldo() {
+        return this.saldo;
     }
 
-    setEmail(email){
-        this.email = email
+    getTipo() {
+        return this.tipo;
     }
 
-    setNome(nome){
-        this.nome = nome
+    setEmail(email) {
+        this.email = email;
     }
 
-    setId(id){
-        this.id = id
+    setNome(nome) {
+        this.nome = nome;
     }
 
-    setCpf(cpf){
-        this.cpf = cpf
+    setId(id) {
+        this.id = id;
     }
 
-    setSaldo(saldo){
-        this.saldo = saldo
+    setCpf(cpf) {
+        this.cpf = cpf;
     }
 
-    setTipo(tipo){
-        this.tipo = tipo
+    setSaldo(saldo) {
+        this.saldo = saldo;
     }
 
-    transferencia(valor, cpfDestino){
-        if(consultarAutorizacao() == false){
-            console.log("transferencia não realizada");
-            return false
+    setTipo(tipo) {
+        this.tipo = tipo;
+    }
+
+    transferencia(valor, cpfDestino) {
+        if (consultarAutorizacao() == false) {
+            console.log("Transferência não realizada");
+            return false;
         } else {
-            console.log("transferencia realizada");
+            console.log("Transferência realizada");
             fetch(`/usuario/transferencia/${this.id}`, {
                 method: "POST",
                 headers: {
@@ -69,20 +71,22 @@ class Cliente{
                     cpfDestino: cpfDestino,
                     valor: valor
                 })
-            }).then(function (resposta) {
-        
-                if (resposta.ok) {
-                    resposta.json().then(json => {        
-                        // Atribuindo os valores do JSON para as variáveis de sessão
-                        console.log(JSON.stringify(json));
-                        sessionStorage.SALDO_USUARIO = json.saldo;
-                    });
-                } else {
-                    resposta.text().then(texto => {
-                        alert(texto);
-                    });
-                }
             })
+                .then(function (resposta) {
+                    if (resposta.ok) {
+                        resposta.json().then(json => {
+                            // Atribuindo os valores do JSON para as variáveis de sessão
+                            console.log(JSON.stringify(json));
+                        });
+                    } else {
+                        resposta.text().then(texto => {
+                            alert(texto);
+                        });
+                    }
+                })
+                .catch(function (resposta) {
+                    alert(`${resposta}`);
+                });
         }
     }
 }
