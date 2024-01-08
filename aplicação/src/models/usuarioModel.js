@@ -18,9 +18,19 @@ function autenticar(cpf, senha) {
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);
 }
+function transferencia(idOrigem, cpfDestino, valor, dataTransferencia) {
+  return database.executar(`
+    INSERT INTO transferencia (idUsuarioOrigem, cpfUsuarioDestino, valor, dataTransferencia)
+    VALUES ('${idOrigem}', '${cpfDestino}', '${valor}', '${dataTransferencia}')
+  `);
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
+}
+
 
 // Exportando as funções
 module.exports = {
   cadastrar,
   autenticar,
+  transferencia
 };

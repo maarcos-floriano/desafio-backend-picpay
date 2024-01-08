@@ -12,3 +12,13 @@ CREATE TABLE usuario (
     saldo DECIMAL(10,2) NOT NULL,
     tipoUsuario VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE transferencia (
+    idTransferencia INT PRIMARY KEY AUTO_INCREMENT,
+    idUsuarioOrigem INT NOT NULL,
+    cpfdUsuarioDestino INT NOT NULL,
+    valor DECIMAL(10,2) NOT NULL,
+    dataTransferencia DATE NOT NULL,
+    FOREIGN KEY (idUsuarioOrigem) REFERENCES usuario(idUsuario),
+    FOREIGN KEY (idUsuarioDestino) REFERENCES usuario(idUsuario)
+);

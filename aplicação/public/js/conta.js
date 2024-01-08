@@ -55,35 +55,27 @@ class Cliente{
     }
 
     transferencia(valor, cpfDestino){
-        if(this.saldo < valor && !consultarAutorizacao()){
+        if(!consultarAutorizacao()){
             return false
         } else {
-            fetch("/usuario/transferencia", {
+            fetch(`/usuario/transferencia/${this.id}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    idOrigem: this.id,
-                    idDestino: cpfDestino,
+                    cpfDestino: cpfDestino,
                     valor: valor
                 })
             }).then(function (resposta) {
         
                 if (resposta.ok) {
-                    console.log(resposta);
-        
-                    resposta.json().then(json => {
-                        console.log(json);
-        
+                    resposta.json().then(json => {        
                         // Atribuindo os valores do JSON para as variáveis de sessão
                         console.log(JSON.stringify(json));
                         sessionStorage.SALDO_USUARIO = json.saldo;
-        
                     });
-        
                 } else {
-                    console.log("Houve um erro ao tentar realizar a transferencia!");
                     resposta.text().then(texto => {
                         alert(texto);
                     });
@@ -94,7 +86,7 @@ class Cliente{
 }
 
 // Função para consultar mocky de autorização de transação
-const consultarAutorizacao = () => {
+function consultarAutorizacao(){
     fetch("https://run.mocky.io/v3/5794d450-d2e2-4412-8131-73d0293ac1cc").then(function (resposta) {
         if (resposta.ok) {
             resposta.json().then(json => {
@@ -113,8 +105,4 @@ const consultarAutorizacao = () => {
     })
 }
 
-
-
-//chamadndo a função de consultar autorização se botão for clicado
-const btnTransferir = document.getElementById("btnTransferir");
-btnTransferir.addEventListener("click", consultarAutorizacao);
+NovoCliente = new Cliente();

@@ -84,8 +84,48 @@ function autenticar(req, res) {
 
 }
 
+function transferencia(){
+    var idOrigem = req.body.idOrigem;
+    var cpfDestino = req.body.cpfDestino;
+    var dataTransferencia = new Date();
+
+    //Formatando a data para o formato do MySQL
+    dataTransferencia = dataTransferencia.getFullYear() + "-" + (dataTransferencia.getMonth() + 1) + "-" + dataTransferencia.getDate() + " " + dataTransferencia.getHours() + ":" + dataTransferencia.getMinutes() + ":" + dataTransferencia.getSeconds();
+
+    if (idOrigem == undefined) {
+        res.status(400).send("Seu id está undefined!");
+    } else if (cpfDestino == undefined) {
+        res.status(400).send("Seu cpf está undefined!");
+    } else {
+        usuarioModel.transferencia(idOrigem, cpfDestino, valor, dataTransferencia)
+    .then(
+        function (resultado){
+            if(resultado.length == 1){
+                res.json({
+                    saldo: resultado[0].saldo
+                })
+            } else if(resultado.length == 0){
+                res.status(403).send("Email e/ou senha inválido(s)");
+            } else {
+                res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+            }
+        }
+    ).catch(
+        function(erro){
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao realizar a autenticação! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+    }
+}
+
 // Exportando as funções
 module.exports = {
     cadastrar,
-    autenticar
+    autenticar,
+    transferencia
 }
