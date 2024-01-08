@@ -36,11 +36,28 @@ function atualizarSaldoOrigem(idOrigem, valor) {
   return database.executar(instrucao);
 }
 
+function atualizarSaldoDestino(cpfDestino, valor) {
+  return database.executar(`
+    UPDATE usuario SET saldo = saldo + '${valor}' WHERE cpf = '${cpfDestino}'
+  `);
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
+}
+
+function consultarSaldo(idUsuario) {
+  return database.executar(`
+    SELECT saldo FROM usuario WHERE idUsuario = '${idUsuario}'
+  `);
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
+}
 
 // Exportando as funções
 module.exports = {
   cadastrar,
   autenticar,
   transferencia,
-  atualizarSaldoOrigem
+  atualizarSaldoOrigem,
+  atualizarSaldoDestino,
+  consultarSaldo,
 };

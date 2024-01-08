@@ -104,10 +104,17 @@ function transferencia(req, res) {
     res.status(400).send("Seu cpf está undefined!");
   } else {
     // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-    usuarioModel
-      .transferencia(idOrigem, cpfDestino, valor, dataTransferencia)
-      .then(function (resultado) {
-        res.json(resultado);
+    usuarioModel.transferencia(idOrigem, cpfDestino, valor, dataTransferencia)
+      .then(function () {
+        usuarioModel.atualizarSaldoOrigem(idOrigem, valor)
+          .then(function () {
+            usuarioModel.atualizarSaldoDestino(cpfDestino, valor)
+              .then(function () {
+                usuarioModel.consultarSaldo(idOrigem).then(function (resultado) {
+                  res.json(resultado);
+                });
+              });
+          });
       })
       .catch(function (erro) {
         console.log(erro);

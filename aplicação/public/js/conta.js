@@ -75,8 +75,9 @@ class Cliente {
                 .then(function (resposta) {
                     if (resposta.ok) {
                         resposta.json().then(json => {
-                            // Atribuindo os valores do JSON para as variáveis de sessão
-                            console.log(JSON.stringify(json));
+                            console.log(json);
+                            alert("Transferência realizada com sucesso!");
+                            location.reload();
                         });
                     } else {
                         resposta.text().then(texto => {
