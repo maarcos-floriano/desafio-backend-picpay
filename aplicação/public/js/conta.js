@@ -77,7 +77,6 @@ class Cliente {
                         resposta.json().then(json => {
                             console.log(json);
                             alert("Transferência realizada com sucesso!");
-                            location.reload();
                         });
                     } else {
                         resposta.text().then(texto => {
@@ -114,17 +113,24 @@ function consultarAutorizacao(){
 
 NovoCliente = new Cliente();
 
-function teste(){
-    console.log(NovoCliente.getNome())
-    console.log(NovoCliente.getId())
-    NovoCliente.transferencia(200, "123.456.789-14")
+function transferir(){
+    var valor = document.getElementById("valor").value;
+    var cpf = document.getElementById("destinatario").value;
+    NovoCliente.transferencia(valor, cpf);
+    // NovoCliente.transferencia(200, "123.456.789-13")
+}
+
+function revelarTransferencia(){
+    document.getElementById("transferencia").style.display = "block";
 }
 
 //Colocando o nome do usuário na tela
 document.getElementById("nome").innerHTML = NovoCliente.getNome();
 document.getElementById("saldo").innerHTML = NovoCliente.getSaldo();
-// document.getElementById("cpf").innerHTML = NovoCliente.getCpf();
-// document.getElementById("id").innerHTML = NovoCliente.getId();
 document.getElementById("email").innerHTML = NovoCliente.getEmail();
 document.getElementById("tipo").innerHTML = NovoCliente.getTipo();
 
+function logout(){
+    sessionStorage.clear();
+    location.href = "index.html";
+}

@@ -28,13 +28,21 @@
     </style>
 </head>
 <body>
-    <h1>Conta PicPay</h1>
-    <h2>Dados da conta:</h2>
-    <p>Nome: <span id="nome"></span></p>
-    <p>E-mail: <span id="email"></span></p>
-    <p>Saldo: R$ <span id="saldo"></span></p>
-    <p>Tipo: <span id="tipo"></span></p>
-    <button id="botaoTransferir" onclick="teste()">Transferencia</button>
+    <main>
+        <h1>Conta PicPay</h1>
+        <h2>Dados da conta:</h2>
+        <p>Nome: <span id="nome"></span></p>
+        <p>E-mail: <span id="email"></span></p>
+        <p>Saldo: R$ <span id="saldo"></span></p>
+        <p>Tipo: <span id="tipo"></span></p>
+        <button id="botaoTransferir" onclick="revelarTransferencia()">Transferencia</button>
+    </main>
+    <div id="transferencia" style="display: none;">
+        <h2>Transferir</h2>
+        <input type="number" id="valor" placeholder="Valor">
+        <input type="text" id="destinatario" placeholder="Destinatario">
+        <button id="botaoTransferir" onclick="transferir()">Transferir</button>
+    </div>
 </body>
 </html>
 <script src="./js/conta.js"></script>

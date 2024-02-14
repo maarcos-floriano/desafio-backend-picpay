@@ -28,3 +28,4 @@ INSERT INTO usuario (nome, senha, email, cpf, dataNascimento, saldo, tipo) VALUE
 ('Maria', '123', 'maria@gmail.com', '123.456.789-12', '1990-01-01', 1000.00, 'COMUM'),
 ('Lojista1', '123', 'lojista1@gmail.com', '123.456.789-13', '1990-01-01', 1000.00, 'LOJISTA'),
 ('Lojista2', '123', 'lojista2@gmail.com', '123.456.789-14', '1990-01-01', 1000.00, 'LOJISTA');
+
